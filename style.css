@@ -198,11 +198,27 @@ section.main-container{
     text-shadow: 0 0 10px var(--accent-color2);
 }
 
+.content .typewriter-text{
+    color: var(--accent-color2);
+    text-shadow: 0 0 10px var(--accent-color2);
+}
+
 .content p{
     font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
     margin: 10px 0;
 }
 
 .social-links i{
-    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border-radius: 50%;
+    color: var(--accent-color1);
+    margin: 5px 15px;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
 }
+
