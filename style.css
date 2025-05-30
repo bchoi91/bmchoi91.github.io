@@ -1,224 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Open+Sans&display=swap');
-/* Variables */
 :root{
     --bg-color: #333333;
-    --main-color1: #18435A;
-    --main-color2: #D5D5D7;
-    --accent-color1: #2A628F;
-    --accent-color2: #5B7553;
+    --blueL: #2A628F;
+    --blueD: #18435A;
+    --accentG: #5B7553;
+    --accentW: #D5D5D7;
 }
-
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
-
 body{
-    width: 100%;
-    height: auto;
-    background-color: var(--bg-color);
-    overflow-x: hidden; 
-}
-
-/* Custom Scroll Bar CSS */
-::-webkit-scrollbar{
-    width: 5px;
-}
-::-webkit-scrollbar-track{
     background: var(--bg-color);
-}
-::-webkit-scrollbar-thumb{
-    background: var(--main-color1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-::-webkit-scrollbar-thumb:hover{
-    background-color: var(--accent-color1);
+    color: var(--accentW);
 }
 
-/* Navbar CSS*/
+/* Landing Page Image*/
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/background.png);
+    background-size: cover;
+    background-position: center;
+}
+.container{
+    padding: 10px 10%;
+}
+
+/* Nav Bar */
 nav{
-    width: 100%;
-    height: 10vh;
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-
-.nav-container{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
 .logo{
-    color: var(--main-color2);
-    font-size: 2rem;
-    font-weight: bold;
+    width: 140px;
 }
-
-.logo span{
-    color: var(--main-color2);
-    text-shadow: 0 0 10px var(--main-color2);
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
 }
-
-.hamburg,
-.cancel{
-    cursor: pointer;
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    color: var(--main-color2);
-    font-size: clamp(2.5rem, 0.5rem +5vw, 3rem);
-}
-
-.nav-container .links{
-    display: flex;
-}
-
-.nav-container .links a{
+nav ul li a{
+    color: var(--accentW);
+    text-decoration: none;
+    font-size: 18px;
     position: relative;
-    font-size: 1.2rem;
-    color: var(--main-color2);
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: 550;
-    transition: 0.3s linear;
 }
-
-.nav-container .links a::before{
-    position: absolute;
-    content: "";
-    bottom: -3px;
-    left: 0;
-    width: 0%;
+nav ul li a::after{
+    content: '';
+    width: 0;
     height: 3px;
-    background-color: var(--bg-color);
-    transition: 0.2s linear;
-}
-
-.nav-container .links a:hover::before{
-    width: 100%;
-}
-
-.nav-container .links a:hover{
-    color: var(--accent-color1);
-}
-
-/* Dropdown CSS */
-.dropdown{
-    z-index: 100;
+    background: var(--accentG);
     position: absolute;
-    top: 0;
-    transform: translateY(-500px);
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
     width: 100%;
-    height: auto;
-    backdrop-filter: blur(4px) brightness(40%);
-    box-shadow: 0 0 20px var(--bg-color);
-    transition: 0.2s linear;
 }
 
-.dropdown .links a{
-    display: flex;
-    color: var(--main-color2);
-    text-decoration: none;
-    justify-content: center;
-    padding: 15px 0;
-    align-items: center;
-    transition: 0.2s linear;
+/* Landing Text */
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+}
+.header-text h1 span{
+    color: var(--blueL);
 }
 
-.dropdown .links a:hover{
-    background-color: var(--bg-color);
+/* About Section */
+#about{
+    padding: 80px 0;
+    color: var(--accentW);
 }
-
-section{
-    width: 100%;
-    min-height: 90vh;
-}
-
-section.main-container{
+.row{
     display: flex;
     justify-content: space-between;
-    padding-left: 100px;
-    align-items: center;
+    flex-wrap: wrap;
 }
-
-/* Main Cover Photo */
-.main-container .image{
-    width: 500px;
-    height: 80vh;
-    border-radius: 100%;
-    overflow: hidden;
-    box-shadow: 0 0 50px var(--main-color1);
+.about-col-1{
+    flex-basis: 35%;
 }
-
-.main-container .image img{
+.about-col-1 img{
     width: 100%;
+    border-radius: 15px;
+}
+.about-col-2{
+    flex-basis: 60%;
+}
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--accentW);
 }
 
-.main-container .image:hover{
-    animation: animate 1.5s ease-in-out infinite;
+/* About Section - Tabs */
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
 }
-
-@keyframes animate{
-    0%{
-        scale: 1;
-    }
-    50%{
-        scale: 1.05;
-    }
-    100%{
-        scale: 1;
-    }
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
 }
-
-.main-container .content{
-    color: var(--main-color2);
-    width: 40%;
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: var(--accentG);
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
 }
-
-.content h1{
-    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+.tab-links.active-link::after{
+    width: 50%;
 }
-
-.content h1 span{
-    color: var(--accent-color1);
-    text-shadow: 0 0 10px var(--accent-color2);
-}
-
-.content .typewriter{
-    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
-    text-shadow: 0 0 10px var(--accent-color2);
-}
-
-.content .typewriter-text{
-    color: var(--accent-color2);
-    text-shadow: 0 0 10px var(--accent-color2);
-}
-
-.content p{
-    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
-    margin: 10px 0;
-}
-
-.social-links i{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 3rem;
-    height: 3rem;
-    background-color: transparent;
-    border-radius: 50%;
-    color: var(--accent-color1);
-    margin: 5px 15px;
-    font-size: 1.5rem;
-    transition: 0.2s linear;
-}
-
