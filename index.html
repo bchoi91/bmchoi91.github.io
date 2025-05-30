@@ -49,18 +49,112 @@
         </p>
 
         <div class="tab-titles">
-          <p class="tab-links active-link">Skills</p>
-          <p class="tab-links ">Experience</p>
-          <p class="tab-links ">Education</p>
+          <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+          <p class="tab-links" onclick="opentab('experience')">Experience</p>
+          <p class="tab-links" onclick="opentab('education')">Education</p>
         </div>
-        <div class="tab-contents">
+        <!-- Skills Contents -->
+        <div class="tab-contents active-tab" id="skills">
           <ul>
-            <li><span></span></li>
+            <li><span><b>Python</b></span><br>blah blah blah</li>
+            <li><span><b>C/C++</b></span><br>blah blah blah</li>
+            <li><span><b>Circuits</b></span><br>blah blah blah</li>
+          </ul>
+        </div>
+        <!-- Experience Contents -->
+        <div class="tab-contents" id="experience">
+          <ul>
+            <li><span><b>2023 - Present</b></span><br>blah blah blah</li>
+            <li><span><b>2024-2024</b></span><br>blah blah blah</li>
+            <li><span><b>2023-2023</b></span><br>blah blah blah</li>
+          </ul>
+        </div>
+        <!-- Education Contents -->
+        <div class="tab-contents" id="education">
+          <ul>
+            <li><span><b>UMass Amherst</b></span><br>blah blah blah</li>
+            <li><span><b>North Quincy High School</b></span><br>blah blah blah</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Skills Section -->
+<div id="skills">
+  <div class="container">
+    <h1 class="sub-title">My Skills</h1>
+    <div class="skills-list">
+      <!-- Skill 1: ... -->
+      <div>
+        <h2>skill 1</h2>
+        <p>
+          blah blah blah
+        </p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Skill 2: ... -->
+      <div>
+        <h2>skill 2</h2>
+        <p>
+          blah blah blah
+        </p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Skill 3: ... -->
+      <div>
+        <h2>skill 3</h2>
+        <p>
+          blah blah blah
+        </p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Skill 4: ... -->
+      <div>
+        <h2>skill 4</h2>
+        <p>
+          blah blah blah
+        </p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Skill 5: ... -->
+      <div>
+        <h2>skill 5</h2>
+        <p>
+          blah blah blah
+        </p>
+        <a href="#">Learn More</a>
+      </div>
+      <!-- Skill 6: ... -->
+      <div>
+        <h2>skill 6</h2>
+        <p>
+          blah blah blah
+        </p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Tab Switching in About Section -->
+<script>
+  var tabLinks = document.getElementsByClassName("tab-links");
+  var tabContents = document.getElementsByClassName("tab-contents");
+
+  function opentab(tabName){
+    for(tablink of tabLinks){
+      tablink.classList.remove("active-link");
+    }
+    for(tabContent of tabContents){
+      tabContent.classList.remove("active-tab")
+    }
+
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabName).classList.add("active-tab");
+}
+</script>
+
 </body>
 </html>
