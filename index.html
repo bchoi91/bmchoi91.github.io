@@ -14,15 +14,15 @@
   <div class="container">
     <nav>
       <img src="images/logo.png" class="logo">
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-        <i class="fa-solid fa-xmark"></i>
+      <ul id="sidemenu">
+        <li><a href="#header">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
       </ul>
-      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-bars" onclick="openmenu()"></i>
     </nav>
     <div class="header-text">
       <p>Computer Engineering Student</p>
@@ -52,31 +52,31 @@
         </p>
 
         <div class="tab-titles">
-          <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+          <p class="tab-links active-link" onclick="opentab('skillsTab')">Skills</p>
           <p class="tab-links" onclick="opentab('experience')">Experience</p>
           <p class="tab-links" onclick="opentab('education')">Education</p>
         </div>
         <!-- Skills Contents -->
-        <div class="tab-contents active-tab" id="skills">
+        <div class="tab-contents active-tab" id="skillsTab">
           <ul>
-            <li><span><b>Python</b></span><br>blah blah blah</li>
-            <li><span><b>C/C++</b></span><br>blah blah blah</li>
-            <li><span><b>Circuits</b></span><br>blah blah blah</li>
+            <li><span>Python</span><br>blah blah blah</li>
+            <li><span>C/C++</span><br>blah blah blah</li>
+            <li><span>Circuits</span><br>blah blah blah</li>
           </ul>
         </div>
         <!-- Experience Contents -->
         <div class="tab-contents" id="experience">
           <ul>
-            <li><span><b>2023 - Present</b></span><br>blah blah blah</li>
-            <li><span><b>2024-2024</b></span><br>blah blah blah</li>
-            <li><span><b>2023-2023</b></span><br>blah blah blah</li>
+            <li><span>2023 - Present</span><br>blah blah blah</li>
+            <li><span>2024-2024</span><br>blah blah blah</li>
+            <li><span>2023-2023</span><br>blah blah blah</li>
           </ul>
         </div>
         <!-- Education Contents -->
         <div class="tab-contents" id="education">
           <ul>
-            <li><span><b>UMass Amherst</b></span><br>blah blah blah</li>
-            <li><span><b>North Quincy High School</b></span><br>blah blah blah</li>
+            <li><span>UMass Amherst</span><br>blah blah blah</li>
+            <li><span>North Quincy High School</span><br>blah blah blah</li>
           </ul>
         </div>
       </div>
@@ -196,12 +196,13 @@
         <a href="images/my-cv.pdf" download class="btn btn2">Download Resume</a>
       </div>
       <div class="contact-right">
-        <form>
+        <form name="submit-to-google-sheet">
           <input type="text" name="Name" placeholder="Your Name" required>
-          <input type="text" name="email" placeholder="Your Email" required>
+          <input type="text" name="Email" placeholder="Your Email" required>
           <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
           <button type="submit" class="btn btn2">Submit</button>
         </form>
+        <span id="msg"></span>
       </div>
     </div>
   </div>
@@ -225,8 +226,41 @@
 
     event.currentTarget.classList.add("active-link");
     document.getElementById(tabName).classList.add("active-tab");
-}
+  }
 </script>
 
+<!-- JavaScript for Sidemenu in Nav Section -->
+ <script>
+
+  var sidemenu = document.getElementById("sidemenu");
+
+  function openmenu(){
+    sidemenu.style.right = "0";
+  }
+  function closemenu(){
+    sidemenu.style.right = "-200px";
+  }
+
+ </script>
+
+ <!-- Contact Form Script -->
+<script>
+  const scriptURL = '<SCRIPT https://script.google.com/macros/s/AKfycbw0fgHtdFOFearGJP4h52TxEeLKDKOh6pmL1aQavx-zXPUGZtjufwmMcDmbARYvoEGCHw/exec>'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message Sent Successfully"
+        setTimeout(function(){
+          msg.innerHTML = ""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
 </body>
 </html>
