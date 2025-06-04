@@ -40,7 +40,7 @@ nav{
     flex-wrap: wrap;
 }
 .logo{
-    width: 140px;
+    width: 280px;
 }
 nav ul li{
     display: inline-block;
@@ -137,7 +137,7 @@ nav ul li a:hover::after{
 }
 .tab-contents ul li span{
     color: var(--blueL);
-    font-size: 14px;
+    font-size: 18px;
 }
 .tab-contents{
     display: none;
@@ -345,6 +345,9 @@ nav .fa-solid{
     }
     .header-text h1{
         font-size: 30px;
+    }
+    nav .logo{
+        width: 180px;
     }
     nav .fa-solid{
         display: block;
